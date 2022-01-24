@@ -6,7 +6,7 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.vi.VietnameseAnalyzer;
 import org.apache.lucene.analysis.vi.VietnameseTokenizer;
 import org.elasticsearch.Version;
-import org.elasticsearch.cluster.metadata.IndexMetaData;
+import org.elasticsearch.cluster.metadata.IndexMetadata;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.env.Environment;
 import org.elasticsearch.plugin.analysis.vi.AnalysisVietnamesePlugin;
@@ -112,7 +112,7 @@ public class VietnameseAnalysisTests extends ESTestCase {
 
     public TestAnalysis createTestAnalysis(Settings analysisSettings) throws IOException {
         Settings settings = Settings.builder()
-                .put(IndexMetaData.SETTING_VERSION_CREATED, Version.CURRENT)
+                .put(IndexMetadata.SETTING_VERSION_CREATED, Version.CURRENT)
                 .put(Environment.PATH_HOME_SETTING.getKey(), createTempDir())
                 .put(analysisSettings)
                 .build();
